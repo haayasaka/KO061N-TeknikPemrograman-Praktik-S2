@@ -8,7 +8,7 @@ public class LoanService {
         validateBorrower(borrower);
         Loan.validateAmount(amount);
         Loan loan = new Loan();
-        if (borrower.getCreditScore() >= 600) {
+        if (borrower.hasGoodCreditScore()) {
             loan.approve();
         } else {
             loan.reject();
@@ -21,5 +21,4 @@ public class LoanService {
             throw new IllegalArgumentException("Borrower not verified");
         }
     }
-
 }

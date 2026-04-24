@@ -8,6 +8,9 @@ public class Borrower {
     // Nilai credit score borrower
     private int creditScore;
 
+    // Minimal skor kredit borrower
+    public static final int MIN_CREDIT_SCORE_FOR_LOAN = 600;
+
     // Constructor untuk inisialisasi data borrower
     public Borrower(boolean verified, int creditScore) {
         this.verified = verified;
@@ -26,6 +29,10 @@ public class Borrower {
 
     public boolean canApplyLoan() {
         return verified;
+    }
+
+    public boolean hasGoodCreditScore() {
+        return creditScore >= MIN_CREDIT_SCORE_FOR_LOAN;
     }
 }
 // Class ini merepresentasikan pinjaman
