@@ -1,4 +1,6 @@
 package com.p2p.domain;
+import java.math.BigDecimal;
+
 
 public class Loan {
     // Enum untuk status loan
@@ -29,6 +31,12 @@ public class Loan {
 
     public void reject() {
         this.status = Status.REJECTED;
+    }
+
+    public static void validateAmount(BigDecimal amount) {
+        if (amount.compareTo(BigDecimal.ZERO) <= 0) {
+            throw new IllegalArgumentException("Loan amount must be positive");
+        }
     }
 
 }

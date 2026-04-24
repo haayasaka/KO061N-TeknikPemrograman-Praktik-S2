@@ -43,14 +43,14 @@ public class LoanServiceTest {
     }
 
     @Test
-    @Test
     void shouldRejectLoanWhenAmountIsZeroOrNegative() {
+        // Arrange
         Borrower borrower = new Borrower(true, 700);
         LoanService loanService = new LoanService();
 
-        assertThrows(IllegalArgumentException.class,
-                () -> loanService.createLoan(borrower, BigDecimal.ZERO));
-        assertThrows(IllegalArgumentException.class,
-                () -> loanService.createLoan(borrower, BigDecimal.valueOf(-100)));
+        // Act & Assert
+        assertThrows(IllegalArgumentException.class, () -> loanService.createLoan(borrower, BigDecimal.ZERO));
+
+        assertThrows(IllegalArgumentException.class, () -> loanService.createLoan(borrower, BigDecimal.valueOf(-100)));
     }
 }
